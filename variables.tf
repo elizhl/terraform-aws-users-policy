@@ -15,8 +15,6 @@ variable "user_count" {
 
 variable "user_policy" {
 	description = "Users' policy"
-	#default			= "test.json" 
-	default			= "~/all-terraform/terraform-aws-users-policy/test.json"
 }
 
 variable "organization"{
@@ -31,5 +29,4 @@ variable "role_count" {
 
 variable "role_policy" {
 	description = "Users' policy"
-	default			= "~/all-terraform/terraform-aws-users-policy/test_role.json" 
 }
