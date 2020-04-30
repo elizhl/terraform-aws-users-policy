@@ -1,7 +1,13 @@
+resource "random_string" "role_random" {
+  length = 16
+  special = false
+}
+
+
 resource "aws_iam_policy" "demo-policy" {
   count = var.role_count
 
-  name        = "demo-${count.index}"
+  name        = "demo-policy-${random_string.role_random.result}-${count.index}"
   path        = "/"
   description = "My demo  policy"
   policy			= file(var.role_policy)
@@ -12,7 +18,8 @@ resource "aws_iam_policy" "demo-policy" {
 resource "aws_iam_role" "demo-role" {
   count = var.role_count
 
-  name = "demo-role-${count.index}"
+	#name = "demo-role-${count.index}"
+  name        = "demo-role-${random_string.role_random.result}-${count.index}"
   assume_role_policy = <<EOF
 {
   "Version": "2012-10-17",
