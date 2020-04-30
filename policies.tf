@@ -19,7 +19,7 @@ resource "aws_iam_role" "demo-role" {
   count = var.role_count
 
 	#name = "demo-role-${count.index}"
-  name        = "demo-role-${random_string.role_random.result}-${count.index}"
+	name        = "demo-role-${random_string.role_random.result}-${count.index}"
   assume_role_policy = <<EOF
 {
   "Version": "2012-10-17",
