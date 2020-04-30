@@ -3,10 +3,16 @@ provider "aws" {
 	profile = var.profile
 }
 
+resource "random_string" "user_random" {
+  length = 16
+  special = false
+}
+
 resource "aws_iam_user" "user_list"{
 	count = var.user_count
 
-  name = "demo-${count.index}"
+	#name = "demo-${count.index}"
+  name = "${random_string.user_random.result}-${count.index}"
   path = "/"
 
   tags = {
