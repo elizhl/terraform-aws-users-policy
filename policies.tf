@@ -10,7 +10,7 @@ resource "aws_iam_policy" "demo-policy" {
   name        = "demo-policy-${random_string.role_random.result}-${count.index}"
   path        = "/"
   description = "My demo  policy"
-  policy			= file(var.role_policy)
+  policy			= data.aws_iam_policy_document.policy_document.json
 
 
 }
@@ -18,23 +18,8 @@ resource "aws_iam_policy" "demo-policy" {
 resource "aws_iam_role" "demo-role" {
   count = var.role_count
 
-	#name = "demo-role-${count.index}"
 	name        = "demo-role-${random_string.role_random.result}-${count.index}"
-  assume_role_policy = <<EOF
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Action": "sts:AssumeRole",
-      "Principal": {
-        "Service": "ec2.amazonaws.com"
-      },
-      "Effect": "Allow",
-      "Sid": ""
-    }
-  ]
-}
-EOF
+  assume_role_policy = data.aws_iam_policy_document.role_policy.json
 
   tags = {
     "Organization" = var.organization

@@ -11,7 +11,6 @@ resource "random_string" "user_random" {
 resource "aws_iam_user" "user_list"{
 	count = var.user_count
 
-	#name = "demo-${count.index}"
   name = "${random_string.user_random.result}-${count.index}"
   path = "/"
 
@@ -27,6 +26,5 @@ resource "aws_iam_user_policy" "user_policy_list" {
 
   name = "demo-${count.index}"
 	user = aws_iam_user.user_list[count.index].name
-	policy =file(var.user_policy)
-
+	policy = data.aws_iam_policy_document.iam_policy.json
 }
