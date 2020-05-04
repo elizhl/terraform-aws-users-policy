@@ -13,10 +13,6 @@ variable "user_count" {
 	default			= 2
 }
 
-variable "user_policy" {
-	description = "Users' policy"
-}
-
 variable "organization"{
 	description = "users' organization"
 	default = "default"
@@ -27,6 +23,42 @@ variable "role_count" {
 	default			= 2
 }
 
-variable "role_policy" {
-	description = "Users' policy"
+variable "policy_effect" {
+	default = "Allow"
+}
+
+variable "policy_actions" {
+	default = ["ec2:DescribeInstances", "iam:GetInstanceProfile", "iam:GetUser", "iam:GetRole"]
+}
+
+variable "policy_resources" {
+	default = ["*"]
+}
+
+variable "iam_effect" {
+	default = "Allow"
+}
+
+variable "iam_actions" {
+	default = ["ec2:Describe*"]
+}
+
+variable "iam_resources" {
+	default = ["*"]
+}
+
+variable "role_effect" {
+	default = "Allow"
+}
+
+variable "role_actions" {
+	default = ["sts:AssumeRole"]
+}
+
+variable "role_type" {
+	default = "Service"
+}
+
+variable "role_identifiers" {
+	default = ["ec2.amazonaws.com"]
 }
