@@ -19,8 +19,6 @@ steps:
   - cat ./credentials
   - terraform init
   - terraform plan
-  - terraform apply -auto-approve
-  - terraform destroy -force
 trigger: 
   branch:
     - master
