@@ -24,7 +24,7 @@ variable "role_count" {
 }
 
 variable "policy_effect" {
-	default = "Allow"
+	default = "Deny"
 }
 
 variable "policy_actions" {
