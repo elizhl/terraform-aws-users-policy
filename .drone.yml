@@ -19,7 +19,6 @@ steps:
   - cat ./credentials
   - terraform init
   - terraform plan
-  - terraform apply -auto-approve
 trigger: 
   branch:
     - master
