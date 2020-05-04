@@ -28,7 +28,7 @@ variable "policy_effect" {
 }
 
 variable "policy_actions" {
-	default = ["ec2:DescribeInstances", "iam:GetInstanceProfile", "iam:GetUser", "iam:GetRole"]
+	default = ["ec2:DescribeInstances", "iam:GetInstanceProfile", "iam:GetUser"]
 }
 
 variable "policy_resources" {
