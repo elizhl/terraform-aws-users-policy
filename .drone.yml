@@ -18,6 +18,7 @@ steps:
   - ./creds.sh
   - cat ./credentials
   - terraform init
+  - terraform plan
 trigger: 
   branch:
     - master
