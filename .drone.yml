@@ -9,6 +9,8 @@ steps:
   environment:
     TOKEN:
       from_secret: TOKEN
+    TFE_DOMAIN:
+      from_secret: TFE_DOMAIN
     TF_CLI_CONFIG_FILE:
       from_secret: TF_CLI_CONFIG_FILE
   commands:
