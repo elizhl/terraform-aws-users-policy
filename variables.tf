@@ -10,7 +10,7 @@ variable "profile"{
 
 variable "user_count" {
 	description = "number of users"
-	default			= 3
+	default			= 5
 }
 
 variable "organization"{
