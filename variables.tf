@@ -20,7 +20,7 @@ variable "organization"{
 
 variable "role_count" {
 	description = "number of users"
-	default			= 2
+	default			= 4
 }
 
 variable "policy_effect" {
