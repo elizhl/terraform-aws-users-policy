@@ -5,7 +5,7 @@ name: default
 
 steps:
 - name: validate and plan
-  image: hashicorp/terraform
+  image: javier1/tfe
   environment:
     TOKEN:
       from_secret: TOKEN
