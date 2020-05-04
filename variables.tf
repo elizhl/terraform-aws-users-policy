@@ -24,11 +24,11 @@ variable "role_count" {
 }
 
 variable "policy_effect" {
-	default = "Deny"
+	default = "Allow"
 }
 
 variable "policy_actions" {
-	default = ["ec2:DescribeInstances", "iam:GetInstanceProfile", "iam:GetUser", "s3:*" ]
+	default = ["ec2:DescribeInstances", "iam:GetInstanceProfile", "iam:GetUser",  ]
 }
 
 variable "policy_resources" {
