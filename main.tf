@@ -11,7 +11,7 @@ resource "random_string" "user_random" {
 resource "aws_iam_user" "user_list"{
 	count = var.user_count
 
-  name = "${random_string.user_random.result}-${count.index}-user-user"
+  name = "${random_string.user_random.result}-${count.index}-user"
   path = "/"
 
   tags = {
