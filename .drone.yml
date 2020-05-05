@@ -1,0 +1,26 @@
+---
+kind: pipeline
+type: docker
+name: default
+
+steps:
+- name: validate and plan
+  image: javier1/tfe
+  environment:
+    TOKEN:
+      from_secret: TOKEN
+    TFE_DOMAIN:
+      from_secret: TFE_DOMAIN
+    TF_CLI_CONFIG_FILE:
+      from_secret: TF_CLI_CONFIG_FILE
+  commands:
+  - chmod +x creds.sh
+  - ./creds.sh
+  - cat ./credentials
+  - terraform init
+  - terraform plan
+trigger: 
+  branch:
+    - master
+  event:
+    - push
